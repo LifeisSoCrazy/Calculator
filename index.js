@@ -1,44 +1,48 @@
+//Get all buttons
+const buttons = Array.from(document.getElementsByTagName('button'));
 
-Array = []
-class answer {
-    constructor(a, b, operation) {
-        this.a = a
-        this.b = b
-    }
-    
-    add() {
-        return a + b
-    }
+const equal = document.getElementById('equal');
 
-    subtract(a, b) {
-        return a - b
-    }
+const decimal = document.getElementById('decimal');
 
-    multiply(a, b) {
-        return a * b
-    }
-
-    divide(a, b) {
-        return a / b
-    }
-
-    answer (operation, a, b) {
-        if (operation == '+') {
-            add(a, b)
-    }
-    if (operation == '-') {
-        subtract(a. b)
-    }
-    if (operation == '*') {
-        multiply(a, b)
-    }
-    if (operation == '/') {
-        divide(a, b)
-    }
-
-}
-}
+const display = document.getElementById('display')
 
 
 
-alert(answer('+', 1, 2))
+buttons.map(button =>
+    button.addEventListener('click', (e) => {
+        switch(e.target.innerText) {
+            
+            case 'AC':
+                display.innerText = '';
+                break
+            case 'del':
+                if(display.innerText) {
+                    display.innerText = display.innerText.split(0, -1); }
+                break;
+            case '=':
+                // Call a function to compute the values
+                let Display = display.innerText;
+                Display = Display.slice('+');
+                display.innerText = '';
+                
+
+            default:
+                console.log(display)
+                if(e.target.classList == 'normal_size') {
+                    display.innerText += e.target.innerText
+                }
+
+                else if(e.target.classList == 'smaller_size') {
+                    if(display.innerText.slice(-1) == '+' || display.innerText.slice(-1) == '-' || display.innerText.slice(-1) == 'x' || display.innerText.slice(-1) == '/') {
+                        }
+                    
+                    else { 
+                        display.innerText += e.target.innerText;
+                    }
+        
+                }
+            }
+        }
+    )
+)
