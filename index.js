@@ -37,13 +37,15 @@ buttons.map(button =>
                     display.innerText = value;
             }
                 catch {
-                    display.innerText = 'Error'
+                    display.innerText = 'Error';
                 }
 
 
             default:
                 if(e.target.classList == 'normal_size') {
-                    display.innerText += e.target.innerText
+                    if (e.target.innerText != '=') {
+                        display.innerText += e.target.innerText;
+                    }
                 }
 
                 else if(e.target.classList == 'smaller_size') {
